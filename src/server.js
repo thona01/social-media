@@ -7,7 +7,7 @@ const friendRoutes = require("./routes/friendsRoutes");
 const postRoutes = require("./routes/postRoutes");
 const app = express();
 const uploadDir = path.join(__dirname, "../upload");
-import adminRoutes from "./routes/adminRoutes";
+const adminRoutes = require("./routes/adminRoutes");
 
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
