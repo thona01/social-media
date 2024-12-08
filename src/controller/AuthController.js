@@ -143,7 +143,7 @@ const authController = {
     },
 
     adminRegister: async (req, res) => {
-        const { username, email, password } = req.body;
+        const { username, email, password, address, work, profile_admin } = req.body;
 
         try {
             const existingAdmin = await Admin.findOne({ email });
@@ -157,6 +157,9 @@ const authController = {
                 username,
                 email,
                 password: hashPassword,
+                address,
+                work,
+                profile_admin
             });
 
             await newAdmin.save();
