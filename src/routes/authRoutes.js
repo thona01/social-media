@@ -50,7 +50,7 @@ router.post("/login", authController.login);
 router.get("/check-auth", verifyToken, authController.checkAuth);
 
 // Admin routes
-router.post("/admin/register", authController.adminRegister);
+router.post("/admin/register", upload.single('image'), authController.adminRegister);
 router.post("/admin/login", authController.adminLogin);
 router.get("/admin/check-auth", verifyToken, authController.checkAdminAuth);
 
