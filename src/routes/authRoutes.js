@@ -33,11 +33,11 @@ const verifyToken = require('../middleware/authMiddleware');
 // Multer storage configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'upload'); // Destination folder for uploads
+    cb(null, 'upload');
   },
   filename: function (req, file, cb) {
     const filename = file.fieldname + '_' + Date.now() + '-' + Math.round(Math.random() * 1E9) + '.jpg';
-    req.body.profile_picture_path = filename; // Save the generated filename in the request body
+    req.body.profile_picture_path = filename;
     cb(null, filename);
   }
 });
@@ -45,13 +45,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // User routes
-router.post("/register", upload.single('image'), authController.register); // User registration with image upload
-router.post("/login", authController.login); // User login
-router.get("/check-auth", verifyToken(), authController.checkAuth); // Verify user authentication
+router.post("/register", upload.single('image'), authController.register);
+router.post("/login", authController.login);
+router.get("/check-auth", verifyToken, authController.checkAuth);
 
 // Admin routes
-router.post("/admin/register", upload.single('image'), authController.adminRegister); // Admin registration with image upload
-router.post("/admin/login", authController.adminLogin); // Admin login
-router.get("/admin/check-auth", verifyToken("admin"), authController.checkAdminAuth); // Verify admin authentication
+router.post("/admin/register", upload.single('image'), authController.adminRegister);
+router.post("/admin/login", authController.adminLogin);
+router.get("/admin/check-auth", verifyToken, authController.checkAdminAuth);
 
 module.exports = router;
