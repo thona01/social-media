@@ -5,10 +5,17 @@ function verifyToken(req, res, next) {
     const token = authHeader && authHeader.split(' ')[1];
     if (!token) return res.status(401).json({ message: "Authentication required" });
 
-    jwt.verify(token, process.env.JWT_KEY, (err, user, admin) => {
+    jwt.verify(token, process.env.JWT_KEY, (err, user) => {
         if (err) return res.status(401).json({ message: "Invalid or expired token" });
         req.user = user.data;
+
+        next();
+    });
+
+    jwt.verify(token, process.env.JWT_KEY, (err, admin) => {
+        if (err) return res.status(401).json({ message: "Invalid or expired token" });
         req.admin = admin.data;
+
         next();
     });
 }
