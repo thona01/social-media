@@ -7,6 +7,7 @@ const friendRoutes = require("./routes/friendsRoutes");
 const postRoutes = require("./routes/postRoutes");
 const app = express();
 const uploadDir = path.join(__dirname, "../upload");
+import adminRoutes from "./routes/adminRoutes";
 
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
@@ -25,7 +26,7 @@ app.use(express.static(path.join(__dirname, "../upload")));
 app.use("/api/auth", authRoutes);
 app.use("/api/friend", verifyToken,friendRoutes);
 app.use("/api/post", verifyToken,postRoutes);
-
+app.use("/admin", adminRoutes);
 app.use((req, res, next) => {
   console.log("headers", req.headers);
   console.log("body", req.body);
