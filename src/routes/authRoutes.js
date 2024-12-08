@@ -54,7 +54,6 @@ router.get("/check-auth", verifyToken, authController.checkAuth);
 // Admin routes
 router.post("/admin/register", upload.single('image'), authController.adminRegister);
 router.post("/admin/login", authController.adminLogin);
-router.get("/admin/check-auth", AdminAuth,authController.checkAdminAuth,(req, res) => {
-  res.status(200).json({ message: "Admin authentication successful" });
-});
+router.get("/admin/check-auth", AdminAuth,authController.checkAdminAuth);
+
 module.exports = router;
