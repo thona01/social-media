@@ -8,7 +8,7 @@ const postController = {
                 image_path,
                 user_id,
                 username,
-                // profile_picture_path,
+                profile_picture_path,
                 profile_admin,
             } = req.body;
             const newPost = new Post({
@@ -16,7 +16,7 @@ const postController = {
                 image_path,
                 user_id,
                 username,
-                // profile_picture_path,
+                profile_picture_path,
                 profile_admin,
             });
             await newPost.save();
