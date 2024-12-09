@@ -27,10 +27,7 @@ const PostSchema = new Schema({
         type: String,
         required: true
     },
-    profile_admin: {
-        type: String,
-        default: ''
-    },
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('post', PostSchema);

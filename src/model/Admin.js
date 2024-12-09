@@ -26,7 +26,7 @@ const AdminSchema = new Schema({
         type: String,
         required: true
     },
-    profile_admin: {
+    profile_picture_path: {
         type: String,
         default: ''
     },
