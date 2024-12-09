@@ -8,7 +8,7 @@ const postController = {
                 image_path,
                 user_id,
                 username,
-                profile_picture_path,
+                // profile_picture_path,
                 profile_admin,
             } = req.body;
             const newPost = new Post({
@@ -16,7 +16,7 @@ const postController = {
                 image_path,
                 user_id,
                 username,
-                profile_picture_path,
+                // profile_picture_path,
                 profile_admin,
             });
             await newPost.save();
@@ -26,7 +26,7 @@ const postController = {
                 image_path: newPost.image_path,
                 user_id: newPost.user_id,
                 username: newPost.username,
-                profile_picture_path: newPost.profile_picture_path,
+                // profile_picture_path: newPost.profile_picture_path,
                 profile_admin: newPost.profile_admin,
                 like: newPost.like.length,
                 createdAt: newPost.createdAt,
@@ -67,7 +67,7 @@ const postController = {
                     image_path: post.image_path,
                     user_id: post.user_id,
                     username: post.username,
-                    // profile_picture_path: post.profile_picture_path,
+                    profile_picture_path: post.profile_picture_path,
                     like: post.like.length,
                     createdAt: post.createdAt,
                     isLiked: isLiked,
