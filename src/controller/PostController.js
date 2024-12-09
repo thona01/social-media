@@ -67,7 +67,7 @@ const postController = {
                     image_path: post.image_path,
                     user_id: post.user_id,
                     username: post.username,
-                    profile_picture_path: post.profile_picture_path,
+                    // profile_picture_path: post.profile_picture_path,
                     like: post.like.length,
                     createdAt: post.createdAt,
                     isLiked: isLiked,
