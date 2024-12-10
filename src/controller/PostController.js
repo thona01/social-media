@@ -19,6 +19,7 @@ const postController = {
                 profile_picture_path,
                 profile_admin,
             });
+
             await newPost.save();
             const formated = {
                 _id: newPost.id,
@@ -27,8 +28,8 @@ const postController = {
                 user_id: newPost.user_id,
                 username: newPost.username,
                 profile_picture_path: newPost.profile_picture_path,
-                profile_admin: newPost.profile_admin,
                 like: newPost.like.length,
+
                 createdAt: newPost.createdAt,
             }
             res.status(201).json(formated);
