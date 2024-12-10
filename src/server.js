@@ -7,7 +7,7 @@ const friendRoutes = require("./routes/friendsRoutes");
 const postRoutes = require("./routes/postRoutes");
 const app = express();
 const uploadDir = path.join(__dirname, "../upload");
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5001;
 const verifyToken = require('./middleware/authMiddleware');
 
 if (!fs.existsSync(uploadDir)) {
