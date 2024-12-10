@@ -64,7 +64,7 @@
 //         }
 //     }
 // }
-module.exports = FriendController;
+//module.exports = FriendController;
 
 const User = require('../model/User');
 
