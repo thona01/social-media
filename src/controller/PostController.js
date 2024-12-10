@@ -9,7 +9,6 @@ const postController = {
                 user_id,
                 username,
                 profile_picture_path,
-                profile_admin,
             } = req.body;
             const newPost = new Post({
                 description,
@@ -17,7 +16,6 @@ const postController = {
                 user_id,
                 username,
                 profile_picture_path,
-                profile_admin,
             });
 
             await newPost.save();
